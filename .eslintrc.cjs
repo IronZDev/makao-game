@@ -7,6 +7,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "prettier"
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
@@ -16,7 +17,7 @@ module.exports = {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-  plugins: ["react", "react-refresh", "react-hooks", "simple-import-sort"],
+  plugins: ["react", "react-refresh", "react-hooks", "simple-import-sort", "prettier"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -54,5 +55,6 @@ module.exports = {
         ],
       },
     ],
+    "prettier/prettier": "error"
   },
 };
