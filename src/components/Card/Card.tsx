@@ -9,13 +9,13 @@ const SVG_BOX_HEIGHT = 500;
 
 type CardProps = {
   value: CardValue;
-  isVisible?: boolean;
   suit?: CardSuit;
+  isVisible?: boolean;
   backColor?: string;
   height?: string;
 };
 
-export default function Card({ value, isVisible = true, suit, backColor, height }: CardProps) {
+const Card = ({ value, suit, isVisible = true, backColor, height }: CardProps) => {
   const Card = styled.svg`
     aspect-ratio: 0.7;
     height: ${height || 'auto'};
@@ -52,4 +52,6 @@ export default function Card({ value, isVisible = true, suit, backColor, height 
       <CardElementsContainer>{isVisible ? <CardFront value={value} suit={suit} /> : <CardBack color={backColor} />}</CardElementsContainer>
     </Card>
   );
-}
+};
+
+export default Card;

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'SigmarOne';
-  src: url(${SigmarOne}) format('truetype');
+  src: url(${SigmarOne}), format('truetype');
 }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

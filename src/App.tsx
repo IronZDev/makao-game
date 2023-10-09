@@ -1,12 +1,48 @@
 import { CardSuits } from './types';
-import Card from './components/Card';
+import Hand from './components/Hand';
 
 import './App.css';
 
 function App() {
   return (
     <>
-      <Card value={'JOKER'} color={CardSuits.SPADES} height={'150px'} />
+      <Hand
+        cards={[
+          { value: 'J', suit: CardSuits.SPADES },
+          { value: 'K', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+          { value: 'Q', suit: CardSuits.SPADES },
+        ]}
+        cardsVisible={true}
+      />
     </>
   );
 }

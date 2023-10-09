@@ -13,7 +13,7 @@ type CardFrontProps = {
   suit?: CardSuit;
 };
 
-export default function CardFront({ value, suit }: CardFrontProps) {
+const CardFront = ({ value, suit }: CardFrontProps) => {
   const CornerSymbol = useCallback(
     ({ rotated }: { rotated?: boolean }) => (
       <g transform={`rotate(${rotated ? 180 : 0}, ${SVG_BOX_WIDTH / 2}, ${SVG_BOX_HEIGHT / 2})`}>
@@ -69,4 +69,6 @@ export default function CardFront({ value, suit }: CardFrontProps) {
       )}
     </>
   );
-}
+};
+
+export default CardFront;
