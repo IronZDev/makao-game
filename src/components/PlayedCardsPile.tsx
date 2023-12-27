@@ -4,12 +4,12 @@ import Card from './Card/Card';
 
 import styled from '@emotion/styled';
 
-type DeckProps = {
+type PlayedCardsPileProps = {
   cards: CardData[];
 };
 
-const Deck = ({ cards }: DeckProps) => {
-  const DeckContainer = styled.div`
+const PlayedCardsPile = ({ cards }: PlayedCardsPileProps) => {
+  const PlayedCardsContainer = styled.div`
     display: grid;
     width: 100%;
     height: 100%;
@@ -18,18 +18,15 @@ const Deck = ({ cards }: DeckProps) => {
 
   const CardWrapper = styled.div``;
 
-  // TODO
-  const takeCard = () => {};
-
   return (
-    <DeckContainer>
-      {cards.map((card, index) => (
+    <PlayedCardsContainer>
+      {cards.map((card) => (
         <CardWrapper key={getCardKey(card)}>
-          <Card cardData={card} isVisible={false} isSelected={false} onClickHandler={index === cards.length - 1 ? takeCard : undefined} />
+          <Card cardData={card} isVisible={true} isSelected={false} />
         </CardWrapper>
       ))}
-    </DeckContainer>
+    </PlayedCardsContainer>
   );
 };
 
-export default Deck;
+export default PlayedCardsPile;

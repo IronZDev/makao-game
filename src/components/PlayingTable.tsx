@@ -1,7 +1,7 @@
 import { CardData, CardSuits } from '../types';
-import Deck from './Deck';
+import CardDrawPile from './CardDrawPile';
 import Hand from './Hand';
-import PlayedCards from './PlayedCards';
+import PlayedCardsPile from './PlayedCardsPile';
 
 import styled from '@emotion/styled';
 type PlayingTableProps = {
@@ -82,8 +82,8 @@ const PlayingTable = () => {
   return (
     <Table>
       <DeckWrapper>
-        <Deck cards={cards} />
-        <PlayedCards cards={cards} />
+        <CardDrawPile cards={cards} />
+        <PlayedCardsPile cards={cards} />
       </DeckWrapper>
       <HandWrapper className="player first-player">
         <Hand cards={cards} />
