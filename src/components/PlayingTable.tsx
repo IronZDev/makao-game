@@ -1,5 +1,7 @@
 import { CardData, CardSuits } from '../types';
+import Deck from './Deck';
 import Hand from './Hand';
+import PlayedCards from './PlayedCards';
 
 import styled from '@emotion/styled';
 type PlayingTableProps = {
@@ -16,28 +18,28 @@ const PlayingTable = () => {
     grid-template-areas:
       '. Player2 Player2 Player2 .'
       'Player4 . . . Player3'
-      'Player4 . . . Player3'
+      'Player4 . Deck . Player3'
       'Player4 . . . Player3'
       '. Player1 Player1 Player1 .';
     width: 100%;
     height: 100%;
     background: rgb(3, 0, 121);
     background: radial-gradient(circle, rgba(3, 0, 121, 1) 0%, rgba(2, 15, 150, 1) 59%, rgba(0, 48, 214, 1) 100%);
-    & > div {
+    .player {
       transform-origin: center;
       position: relative;
     }
-    & > :nth-child(1) {
+    .first-player {
       grid-area: Player1;
     }
-    & > :nth-child(2) {
+    .second-player {
       grid-area: Player2;
       margin-bottom: auto;
     }
-    & > :nth-child(3) {
+    .third-player {
       grid-area: Player3;
     }
-    & > :nth-child(4) {
+    .fourth-player {
       grid-area: Player4;
       margin-right: auto;
     }
@@ -48,6 +50,12 @@ const PlayingTable = () => {
     position: relative;
     width: 100%;
     height: 100%;
+  `;
+
+  const DeckWrapper = styled.div`
+    grid-area: Deck;
+    display: inline-flex;
+    gap: 50px;
   `;
 
   const cards: CardData[] = [
@@ -73,10 +81,14 @@ const PlayingTable = () => {
   ];
   return (
     <Table>
-      <HandWrapper>
+      <DeckWrapper>
+        <Deck cards={cards} />
+        <PlayedCards cards={cards} />
+      </DeckWrapper>
+      <HandWrapper className="player first-player">
         <Hand cards={cards} />
       </HandWrapper>
-      <HandWrapper>
+      <HandWrapper className="player second-player">
         <Hand cards={cards} rotate={180} cardsVisible={false} />
       </HandWrapper>
     </Table>

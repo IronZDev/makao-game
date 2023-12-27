@@ -9,7 +9,7 @@ const SVG_BOX_HEIGHT = 500;
 
 type CardProps = {
   cardData: CardData;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
   isVisible?: boolean;
   isSelected?: boolean;
   height?: string;
@@ -23,10 +23,11 @@ const Card = ({ cardData, onClickHandler, isVisible = true, isSelected = false, 
     height: calc(${height} - 15px);
     width: ${width};
     margin-bottom: ${isSelected ? '15px' : '0px'};
-    &: hover {
+    ${onClickHandler &&
+    `&: hover {
       margin-bottom: 15px;
       cursor: pointer;
-    }
+    }`}
   `;
   const Card = styled.svg`
     height: ${height};
@@ -61,7 +62,7 @@ const Card = ({ cardData, onClickHandler, isVisible = true, isSelected = false, 
     fill: ${cardData.suit && [CardSuits.DIAMONDS.toString(), CardSuits.HEARTS.toString()].includes(cardData.suit) ? 'red' : 'black'};
   `;
   return (
-    <CardWrapper onClick={() => onClickHandler()}>
+    <CardWrapper onClick={() => onClickHandler && onClickHandler()}>
       <Card viewBox={`0 0 ${SVG_BOX_WIDTH} ${SVG_BOX_HEIGHT}`} preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="BackgroundGradient" x1="0" x2="0" y1="0" y2="1">

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useWindowSize } from 'react-use';
 
 import { CardData } from '../../types';
+import { getCardKey } from '../../utils';
 import Card from './Card';
 
 import styled from '@emotion/styled';
@@ -41,7 +42,6 @@ const CardContainer = ({ cards, cardsVisible = true }: CardContainerProps) => {
     padding-right: ${handPadding};
     pointer-events: ${!cardsVisible ? 'none' : 'all'};
   `;
-  const getCardKey = (card: CardData) => `${card.value}${card.suit}`;
 
   const onCardClick = (card: CardData) => {
     const key = getCardKey(card);
@@ -55,7 +55,7 @@ const CardContainer = ({ cards, cardsVisible = true }: CardContainerProps) => {
           key={getCardKey(card)}
           cardData={card}
           isVisible={cardsVisible}
-          onClickHandler={() => onCardClick(card)}
+          onClickHandler={cardsVisible ? () => onCardClick(card) : undefined}
           isSelected={!!selectedCards.get(getCardKey(card))}
         />
       ))}
